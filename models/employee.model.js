@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema();
-
-
-const EmployeeSchema = new Schema({
+const EmployeeSchema = new mongoose.Schema({
     firstName:{ required: true, type: 'string'},
     lastName:{ required: true, type: 'string'},
     email:{ required: true, type: 'string'},
@@ -10,6 +7,8 @@ const EmployeeSchema = new Schema({
     gender:{ required: true, type: 'string'},
     nationalId:{ required: true, type: 'string'},
     role:{ 
+        type: 'string',
+        required: true,
         enum:{
             values:["HR","MANAGER","IT","ADMIN","EMPLOYEE"],
             message:"{value} is not a valid role"
