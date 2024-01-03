@@ -31,6 +31,12 @@ const findById = async(req,res,next)=>{
 }
 
 const list = async(req,res,next)=>{
+    try {
+        var employees = await EmployeeModel.find({});
+        res.status(200).json({ employees })
+    } catch (error) {
+        res.status(500).send("error in listing the employee!!!");
+    }
     
 }
 
