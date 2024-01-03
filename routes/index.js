@@ -3,6 +3,6 @@ const allRoutes = express.Router();
 
 const employeeRoutes = require('./employee.routes');
 
-allRoutes.use('/employee/', employeeRoutes);
+allRoutes.use('/employee', employeeRoutes);
 
 module.exports = allRoutes;

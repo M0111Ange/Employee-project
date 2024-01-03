@@ -2,12 +2,12 @@ require ('dotenv').config();
 
 const express = require('express');
 const allRoutes = require('./routes/index');
-const connectToDb = require('./db/databaseConection');
+const {connectToDb} = require('./db/databaseConection');
 
 const app = express();
-connectToDb
-app.use(express.json());
 
+app.use(express.json());
+connectToDb();
 app.use('/api/em', allRoutes);
 
 

@@ -1,18 +1,18 @@
 const EmployeeModel = require('../models/employee.model');
 
-const create = async(req,res,next)=>{
+const create = async (req,res,next)=>{
     try {
        
-        //const savedEmployee = await EmployeeModel.create(req.body);
-        const newEmployee = new EmployeeModel(req.body)
-        const savedEmployee = await EmployeeModel.create();
+        const savedEmployee = await EmployeeModel.create(req.body);
+        // const newEmployee = new EmployeeModel(req.body)
+        // const savedEmployee = await EmployeeModel.create(req.body);
 
 
         console.log(savedEmployee);
 
         res.status(201).json({
             message:'Employee created successfully',
-            employee: savedEmployee
+            savedEmployee
         })
     } catch (error) {
         res.status(500).send("Failed to save!!!");
