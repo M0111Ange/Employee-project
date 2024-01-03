@@ -5,14 +5,14 @@ const create = async(req,res,next)=>{
        
         //const savedEmployee = await EmployeeModel.create(req.body);
         const newEmployee = new EmployeeModel(req.body)
-        const savedEmployee = await newEmployee.save();
+        const savedEmployee = await EmployeeModel.create();
 
 
         console.log(savedEmployee);
 
         res.status(201).json({
             message:'Employee created successfully',
-            employee:savedEmployee,
+            employee: savedEmployee
         })
     } catch (error) {
         res.status(500).send("Failed to save!!!");

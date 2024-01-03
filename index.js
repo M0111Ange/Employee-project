@@ -2,10 +2,10 @@ require ('dotenv').config();
 
 const express = require('express');
 const allRoutes = require('./routes/index');
-const employeeRoutes = require('./routes/employee.routes');
+const connectToDb = require('./db/databaseConection');
 
 const app = express();
-
+connectToDb
 app.use(express.json());
 
 app.use('/api/em', allRoutes);
